@@ -28,7 +28,7 @@ class TestCase extends BaseTestCase
      */
     public function createApplication()
     {
-        $app = require base_path('bootstrap/app.php');
+        $app = require $this->bootstrap;
 
         $app->make(Kernel::class)->bootstrap();
 

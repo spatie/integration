@@ -20,6 +20,14 @@ You can install the package via composer:
 $ composer require spatie/integration
 ```
 
+## Overview
+
+This package provides the base classes for our integration tests. They are extensions of laravel's testing facilities which were introduced in 5.1.
+
+The base test case for all integration tests is `Spatie\Integration\TestCase`. We're not using laravel's `DatabaseTransations` trait since it only starts the transactions after `setUp()`, which we use to seed our data.
+
+Other cases are for recurring, specific parts of our application, e.g. modules in our custom CMS.
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.

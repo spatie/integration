@@ -9,7 +9,7 @@ namespace Spatie\Integration;
  * - protected string $controller
  * - protected array  $expectedProperties
  */
-abstract class ModuleTestCase extends TestCase
+abstract class ModuleTestCase extends BackTestCase
 {
     public function setUp()
     {

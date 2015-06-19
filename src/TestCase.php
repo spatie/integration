@@ -15,6 +15,13 @@ class TestCase extends TestCase
     protected $baseUrl = 'http://localhost';
 
     /**
+     * The location of the application's bootstrap file
+     * 
+     * @var string
+     */
+    protected $bootstrap = __DIR__.'/../../../../bootstrap/app.php';
+
+    /**
      * Creates the application.
      *
      * @return \Illuminate\Foundation\Application

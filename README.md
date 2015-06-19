@@ -2,6 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/github/release/spatie-custom/integration.svg?style=flat-square)](https://packagist.org/packages/spatie-custom/integration)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/0560c418-7a42-432f-af8e-b598b1aa8d28.svg?style=flat-square)](https://insight.sensiolabs.com/projects/0560c418-7a42-432f-af8e-b598b1aa8d28)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie-custom/integration.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie-custom/integration)
 
 Base integration tests for our laravel applications.

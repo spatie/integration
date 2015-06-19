@@ -1,0 +1,39 @@
+{
+    "name": "spatie/integration",
+    "description": "Base integration tests for our laravel applications",
+    "keywords": [
+        "spatie",
+        "integration"
+    ],
+    "homepage": "https://github.com/spatie/integration",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Freek Van Der Herten",
+            "email": "freek@spatie.be",
+            "homepage": "https://spatie.be",
+            "role": "Developer"
+        },
+        {
+            "name": "Sebastian De Deyne",
+            "email": "sebastian@spatie.be",
+            "homepage": "https://spatie.be",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spatie\\Integration\\": "src"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}

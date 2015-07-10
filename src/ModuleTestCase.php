@@ -40,7 +40,7 @@ abstract class ModuleTestCase extends BackTestCase
     {
         $this->visit(action("{$this->controller}@index"))
             ->see(trans("back-{$this->pluralName}.title"))
-            ->see(trans("back-{$this->pluralName}.new{$this->nameUpper}"));
+            ->see(trans("back-{$this->pluralName}.new"));
 
         foreach($this->models as $model) {
             $this->see(htmlentities($model->name));

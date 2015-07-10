@@ -43,7 +43,7 @@ abstract class ModuleTestCase extends BackTestCase
             ->see(trans("back-{$this->pluralName}.new{$this->nameUpper}"));
 
         foreach($this->models as $model) {
-            $this->see($model->name);
+            $this->see(htmlentities($model->name));
         }
     }
 
@@ -56,7 +56,7 @@ abstract class ModuleTestCase extends BackTestCase
 
         $this
             ->visit(action("{$this->controller}@index"))
-            ->click($model->name)
+            ->click(htmlentities($model->name))
             ->onPage(action("{$this->controller}@edit", [$model->id]))
             ->press(trans("back-{$this->pluralName}.save"))
             ->see(trans("back-{$this->pluralName}.events.updated", ['name' => $model->name]))

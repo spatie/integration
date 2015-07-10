@@ -30,7 +30,7 @@ class TestCase extends BaseTestCase
     {
         file_put_contents($this->basePath.'/storage/database.sqlite', null);
 
-        $app = require $this->basePath.'/bootstrap/app.php'
+        $app = require $this->basePath.'/bootstrap/app.php';
 
         $app->make(Kernel::class)->bootstrap();
 

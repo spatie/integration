@@ -11,6 +11,31 @@ namespace Spatie\Integration;
  */
 abstract class ModuleTestCase extends BackTestCase
 {
+    /**
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * @var string
+     */
+    protected $nameUpper;
+
+    /**
+     * @var string
+     */
+    protected $pluralName;
+
+    /**
+     * @var string
+     */
+    protected $pluralNameUpper;
+
+    /**
+     * @var array
+     */
+    protected $expectedProperties;
+
     public function setUp()
     {
         parent::setUp();
@@ -43,7 +68,7 @@ abstract class ModuleTestCase extends BackTestCase
             ->see(trans("back-{$this->pluralName}.new"));
 
         foreach($this->models as $model) {
-            $this->see(htmlentities($model->name));
+            $this->see($this->escape($model->name));
         }
     }
 
@@ -56,10 +81,20 @@ abstract class ModuleTestCase extends BackTestCase
 
         $this
             ->visit(action("{$this->controller}@index"))
-            ->click(htmlentities($model->name))
+            ->click($this->escape($model->name))
             ->onPage(action("{$this->controller}@edit", [$model->id]))
             ->press(trans("back-{$this->pluralName}.save"))
-            ->see(trans("back-{$this->pluralName}.events.updated", ['name' => $model->name]))
+            ->see(trans("back-{$this->pluralName}.events.updated", ['name' => $this->escape($model->name)]))
             ->onPage(action("{$this->controller}@edit", [$model->id]));
+    }
+
+    /**
+     * @param string $string
+     *
+     * @return string
+     */
+    protected function escape($string)
+    {
+        return htmlentities($string, ENT_QUOTES);
     }
 }

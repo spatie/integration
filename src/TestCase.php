@@ -15,11 +15,11 @@ class TestCase extends BaseTestCase
     protected $baseUrl = 'http://localhost';
 
     /**
-     * The location of the application's bootstrap file
+     * The applications base path. This assumes that this package is installed with composer.
      * 
      * @var string
      */
-    protected $bootstrap = __DIR__.'/../../../../bootstrap/app.php';
+    protected $basePath = __DIR__.'/../../../..';
 
     /**
      * Creates the application.
@@ -28,7 +28,9 @@ class TestCase extends BaseTestCase
      */
     public function createApplication()
     {
-        $app = require $this->bootstrap;
+        file_put_contents($this->basePath.'/storage/database.sqlite', null);
+
+        $app = require $this->basePath.'/bootstrap/app.php'
 
         $app->make(Kernel::class)->bootstrap();
 
@@ -39,13 +41,6 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->app->make('db')->beginTransaction();
-    }
-
-    public function tearDown()
-    {
-        $this->app->make('db')->rollBack();
-        
-        parent::tearDown();
+        $this->artisan('migrate');
     }
 }

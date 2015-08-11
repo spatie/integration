@@ -53,7 +53,7 @@ abstract class ModuleTestCase extends BackTestCase
 
         foreach($this->models as $model) {
             foreach($this->expectedProperties as $expectedProperty) {
-                $this->assertNotNull($model->$expectedProperty);
+                $this->assertNotNull($model->$expectedProperty, "Property {$expectedProperty} was null");
             }
         }
     }

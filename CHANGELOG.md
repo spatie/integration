@@ -2,6 +2,9 @@
 
 All Notable changes to `integration` will be documented in this file
 
+## 2.0.1
+- Added error message for missing properties in `ModuleTestCase`
+
 ## 2.0.0
 - Updates for blender changes
 

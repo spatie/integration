@@ -15,7 +15,7 @@ abstract class BackTestCase extends TestCase
     {
         parent::setUp();
 
-        $this->currentUser = factory(User::class)->create();
+        $this->currentUser = $this->currentUser ?: factory(User::class)->create();
         $this->actingAs($this->currentUser);
     }
 }

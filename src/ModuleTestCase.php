@@ -68,7 +68,9 @@ abstract class ModuleTestCase extends BackTestCase
             ->see(trans("back-{$this->pluralName}.new"));
 
         foreach($this->models as $model) {
-            $this->see($this->escape($model->name));
+            if (isset($model->online) && $model->online) {
+                $this->see($model->name);
+            }
         }
     }
 
@@ -80,21 +82,8 @@ abstract class ModuleTestCase extends BackTestCase
         $model = $this->models->first();
 
         $this
-            ->visit(action("{$this->controller}@index"))
-            ->click($this->escape($model->name))
-            ->onPage(action("{$this->controller}@edit", [$model->id]))
+            ->visit(action("{$this->controller}@edit", [$model->id]))
             ->press(trans("back-{$this->pluralName}.save"))
-            ->see(trans("back-{$this->pluralName}.events.updated", ['name' => $this->escape($model->name)]))
             ->onPage(action("{$this->controller}@edit", [$model->id]));
-    }
-
-    /**
-     * @param string $string
-     *
-     * @return string
-     */
-    protected function escape($string)
-    {
-        return htmlentities($string, ENT_QUOTES);
     }
 }

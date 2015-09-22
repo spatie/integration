@@ -84,6 +84,7 @@ abstract class ModuleTestCase extends BackTestCase
         $this
             ->visit(action("{$this->controller}@edit", [$model->id]))
             ->press(trans("back-{$this->pluralName}.save"))
+            ->see(trans("back.events.updated", ['model' => trans("back-{$this->pluralName}.singular"), 'name' => $model->name]))
             ->onPage(action("{$this->controller}@edit", [$model->id]));
     }
 }

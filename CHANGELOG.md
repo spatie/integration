@@ -2,6 +2,9 @@
 
 All Notable changes to `integration` will be documented in this file
 
+## 3.0.1
+- Bugfix: Changed onPage method to seePageIs
+
 ## 3.0.0
 - Support for Blender 5.3's ACL features
 
